@@ -35,6 +35,8 @@ describe 'User' do
 
     click_on 'Log out'
 
-    expect(current_path).to eq(logout_path)
+    expect(page).to have_content('You have been successfully logged out!')
+    expect(current_path).to eq(sessions_path)
+    expect(page).to_not have_content(user.email)
   end
 end
