@@ -18,4 +18,23 @@ describe 'User' do
 
     expect(page).to have_content("Welcome, #{user.name}")
   end
+
+  scenario 'cannot create account if email address already exists' do
+    user = User.create!(
+      name: 'Ahighat',
+      email: 'ahighat@gmail.com',
+      password: 'testpass'
+    )
+
+    visit '/'
+
+    click_on 'Create a New Account'
+    fill_in 'Name', with: user.name
+    fill_in 'E-mail address', with: user.email
+    fill_in 'Password', with: user.password
+    click_on 'Create Account'
+
+    expect(page).to have_button('Create Account')
+    expect(current_path).to eq(new_user_path)
+  end
 end
