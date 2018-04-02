@@ -10,10 +10,10 @@ describe 'User' do
 
     visit '/'
 
-    click_on 'Log in'
+    click_link 'Log in'
     fill_in 'E-mail address', with: user.email
     fill_in 'Password', with: user.password
-    click_on 'Log in'
+    click_button 'Log in'
 
     expect(page).to have_content("Welcome, #{user.name}")
     expect(current_path).to eq(user_path(user))
@@ -28,10 +28,10 @@ describe 'User' do
 
     visit '/'
 
-    click_on 'Log in'
+    click_link 'Log in'
     fill_in 'E-mail address', with: user.email
     fill_in 'Password', with: user.password
-    click_on 'Log in'
+    click_button 'Log in'
 
     click_on 'Log out'
 

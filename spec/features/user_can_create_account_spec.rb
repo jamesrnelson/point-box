@@ -10,7 +10,7 @@ describe 'User' do
 
     visit '/'
 
-    click_on 'Create a New Account'
+    click_on 'Create New Account'
     fill_in 'Name', with: user.name
     fill_in 'E-mail address', with: user.email
     fill_in 'Password', with: user.password
@@ -28,7 +28,7 @@ describe 'User' do
 
     visit '/'
 
-    click_on 'Create a New Account'
+    click_on 'Create New Account'
     fill_in 'Name', with: user.name
     fill_in 'E-mail address', with: user.email
     fill_in 'Password', with: user.password
