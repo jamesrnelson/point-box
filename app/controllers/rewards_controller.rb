@@ -16,6 +16,7 @@ class RewardsController < ApplicationController
   def update
     @reward = Reward.find(params[:id])
     @reward.update(reward_params)
+    redirect_to rewards_path
   end
 
   private

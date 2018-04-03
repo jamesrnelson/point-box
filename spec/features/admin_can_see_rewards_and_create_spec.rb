@@ -1,6 +1,7 @@
 require 'rails_helper'
 
-describe 'Admin goes to rewards index' do
+
+describe 'Admin Sees and Creates Rewards' do
   it 'should display rewards and be able to create rewards' do
     admin = User.create(
       name: 'Jimmy',
@@ -22,7 +23,9 @@ describe 'Admin goes to rewards index' do
     expect(page).to have_content('A cool thing')
     expect(page).to have_content('So cool that everybody wants it.')
   end
+end
 
+describe 'Admin Edits Rewards' do
   it 'should be able to edit rewards' do
     reward1 = Reward.create!(title: 'best thing', description: 'truly the best')
 
