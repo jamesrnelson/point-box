@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   scope :admin, module: :admin, as: :admin do
     resources :users
     resources :rewards
+    resources :points
   end
 
   resources :users, only: %i[new create show]

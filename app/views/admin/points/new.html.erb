@@ -1,0 +1,9 @@
+<h3>Assign Points</h3>
+
+<%= form_for [:admin, @point] do |f| %>
+  <%= f.label :value %>
+  <%= f.number_field :value %>
+  <%= f.label :user %>
+  <%= f.collection_select :user, 'name' %>
+  <%= f.submit 'Assign Points' %>
+<% end %>
