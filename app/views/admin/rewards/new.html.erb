@@ -1,7 +1,2 @@
-<%= form_for @reward do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :description %>
-  <%= f.text_area :description %>
-  <%= f.submit %>
-<% end %>
+<h3>Create a New Reward</h3>
+<%= render partial: 'form' %>
