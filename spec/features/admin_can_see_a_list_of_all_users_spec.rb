@@ -5,7 +5,8 @@ describe 'Admin' do
     user1 = User.create(
       name: 'Jimmy',
       email: 'nelson.jimmy@gmail.com',
-      password: 'test'
+      password: 'test',
+      role: 1
     )
     user2 = User.create(
       name: 'Ahighat',
@@ -17,6 +18,14 @@ describe 'Admin' do
       email: 'sasha@gmail.com',
       password: 'test'
     )
+
+    visit '/'
+
+    click_on 'Log in'
+
+    fill_in 'E-mail address', with: user1.email
+    fill_in 'password', with: user1.password
+    click_button 'Log in'
 
     visit '/admin/users'
 
@@ -30,14 +39,17 @@ describe 'Admin' do
 end
 
 describe 'Default User' do
-  scenario 'is not allowed to see admin categories index' do
-    user = User.create(username: 'fern@gully.com',
-                       password: 'password',
-                       role: 0)
+  scenario 'is not allowed to see admin users index' do
+    user = User.create(
+      name: 'Joseph',
+      email: 'jpriley@gmail.com',
+      password: 'password',
+      role: 0
+    )
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-    visit admin_categories_path
-    expect(page).to_not have_content('Admin Categories')
+    visit admin_users_path
+    expect(page).to_not have_content(user.name)
     expect(page).to have_content('The page you were looking for doesn\'t exist.')
   end
 end
