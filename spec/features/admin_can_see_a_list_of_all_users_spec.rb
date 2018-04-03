@@ -28,3 +28,16 @@ describe 'Admin' do
     expect(page).to have_content(user3.email)
   end
 end
+
+describe 'Default User' do
+  scenario 'is not allowed to see admin categories index' do
+    user = User.create(username: 'fern@gully.com',
+                       password: 'password',
+                       role: 0)
+
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+    visit admin_categories_path
+    expect(page).to_not have_content('Admin Categories')
+    expect(page).to have_content('The page you were looking for doesn\'t exist.')
+  end
+end
