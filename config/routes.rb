@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: %i[new create show]
-  resources :rewards, only: %i[index show create update]
+  resources :rewards, only: %i[index show create update destroy]
 
   resources :sessions, only: %i[index]
   get '/login', to: 'sessions#new'

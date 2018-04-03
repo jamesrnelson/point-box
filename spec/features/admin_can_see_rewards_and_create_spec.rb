@@ -54,3 +54,28 @@ describe 'Admin Edits Rewards' do
     expect(page).to have_content('no one wants it')
   end
 end
+
+describe 'Admin Deletes Rewards' do
+  it 'should be able to delete rewards' do
+    reward1 = Reward.create!(title: 'best thing', description: 'truly the best')
+
+    admin = User.create(
+      name: 'Jimmy',
+      email: 'nelson.jimmy@gmail.com',
+      password: 'test',
+      role: 1
+    )
+
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+    visit admin_rewards_path
+
+    expect(page).to have_content(reward1.title)
+    expect(page).to have_content(reward1.description)
+
+    click_on 'Delete'
+
+    expect(current_path).to eq(admin_rewards_path)
+    expect(page).to_not have_content(reward1.title)
+    expect(page).to_not have_content(reward1.description)
+  end
+end
