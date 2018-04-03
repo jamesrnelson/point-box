@@ -9,12 +9,12 @@ describe 'User visits rewards index' do
     )
 
     reward1 = Reward.create!(
-      title: 'thing',
+      title: 'thing1',
       description: 'it\'s so awesome!'
     )
 
     reward2 = Reward.create!(
-      title: 'thing',
+      title: 'thing2',
       description: 'it\'s so awesome!'
     )
 
