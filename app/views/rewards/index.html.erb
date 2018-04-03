@@ -1,0 +1,4 @@
+<h1>All Possible Rewards</h1>
+<% @rewards.each do |reward| %>
+  <%= link_to reward.title, reward_path(reward) %> - <%= reward.description %>
+<% end %>

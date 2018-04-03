@@ -5,8 +5,11 @@ Rails.application.routes.draw do
   scope :admin, module: :admin, as: :admin do
     resources :users
   end
-  resources :users, only: [:new, :create, :show]
-  resources :sessions, only: [:index]
+
+  resources :users, only: %i[new create show]
+  resources :rewards, only: %i[index show]
+
+  resources :sessions, only: %i[index]
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
