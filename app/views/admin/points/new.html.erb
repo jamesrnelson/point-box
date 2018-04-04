@@ -1,6 +1,6 @@
 <h3>Assign Points</h3>
 
-<%= form_for [:admin, @point] do |f| %>
+<%= form_for @point do |f| %>
   <%= f.label :value %>
   <%= f.number_field :value %>
   <%= f.label :user %>

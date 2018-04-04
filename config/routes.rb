@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[new create show]
   resources :rewards, only: %i[index show create update destroy]
+  resources :points, only: %i[create]
 
   resources :sessions, only: %i[index]
   get '/login', to: 'sessions#new'
