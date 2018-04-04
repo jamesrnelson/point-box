@@ -3,6 +3,7 @@
 <% @rewards.each do |reward| %>
   <%= link_to reward.title, reward_path(reward) %> -
   <%= reward.description %> -
+  Price: <%= reward.cost %> -
   <%= link_to 'Edit', edit_admin_reward_path(reward) %> -
   <%= link_to "Delete", reward_path(reward), method: 'delete', data: {confirm: "Are you sure? This will permanently delete this reward from all associated user accounts."} %>
   <br>

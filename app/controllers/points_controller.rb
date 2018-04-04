@@ -1,18 +1,23 @@
 # Defines actions for Points Controller
 class PointsController < ApplicationController
+  def index
+    @points = current_user.points
+  end
+
   def create
-    @point = Point.create(point_params)
-    if @point.save
-      redirect_to admin_points_path
-    else
-      flash.notice = 'You must select a point value.'
-      redirect_to new_admin_point_path
-    end
+    Point.create(point_params)
+    UserReward.create(user_reward_params)
+    flash.notice = 'You have acquired a reward!'
+    redirect_to rewards_path
   end
 
   private
 
   def point_params
-    params.require(:point).permit(:value, :user_id)
+    params.require(:point).permit(:value, :description, :user_id)
+  end
+
+  def user_reward_params
+    params.require(:user_reward).permit(:user_id, :reward_id)
   end
 end

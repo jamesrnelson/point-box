@@ -24,9 +24,13 @@ class RewardsController < ApplicationController
     redirect_to admin_rewards_path
   end
 
+  def show
+    @reward = Reward.find(params[:id])
+  end
+
   private
 
   def reward_params
-    params.require(:reward).permit(:title, :description)
+    params.require(:reward).permit(:title, :description, :cost)
   end
 end

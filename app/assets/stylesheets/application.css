@@ -24,19 +24,32 @@
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+  justify-content: center;
 }
 .banner {
-  width: 75vw;
+  width: 33vw;
   font-size: 30px;
   padding-top: 0px;
   font-weight: bold;
 }
 
+.center {
+  width: 33vw;
+  display: flex;
+  justify-content: center;
+
+}
+
 .right-side {
   display: flex;
   flex-direction: row;
-  width: 50vw;
+  width: 33vw;
   justify-content: right
+}
+
+.right-side p {
+  display: inline-block;
+  padding-right: 10px;
 }
 
 .topnav a {
