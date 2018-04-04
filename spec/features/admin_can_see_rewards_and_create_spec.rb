@@ -25,8 +25,8 @@ describe 'Admin Sees and Creates Rewards' do
   end
 end
 
-describe 'Admin Sees and Creates Rewards' do
-  it 'should display rewards and be able to create rewards' do
+describe 'Admin tries to use incomplete information when creating new reward' do
+  it 'should redirect to the new point path' do
     admin = User.create(
       name: 'Jimmy',
       email: 'nelson.jimmy@gmail.com',

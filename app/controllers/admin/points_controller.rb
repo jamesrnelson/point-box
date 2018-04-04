@@ -15,6 +15,7 @@ class Admin::PointsController < Admin::BaseController
     if point.save
       redirect_to admin_points_path
     else
+      flash.notice = 'You must select a point value.'
       redirect_to new_admin_point_path
     end
   end
