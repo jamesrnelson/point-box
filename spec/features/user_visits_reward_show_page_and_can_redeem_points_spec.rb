@@ -26,7 +26,7 @@ describe 'User visits reward show page' do
 
     expect(current_path).to eq(rewards_path)
     expect(page).to have_content('Your points available to redeem: 10')
-    expect(page).to have_conten('You have acquired a reward!')
+    expect(page).to have_content('You have acquired a reward!')
   end
 end
 
