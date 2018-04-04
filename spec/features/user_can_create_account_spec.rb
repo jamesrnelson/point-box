@@ -16,7 +16,7 @@ describe 'User' do
     fill_in 'Password', with: user.password
     click_on 'Create Account'
 
-    expect(page).to have_content("Welcome, #{user.name}")
+    expect(page).to have_content('Thanks for making an account! Log in now to see what all the fuss is about!')
   end
 
   scenario 'cannot create account if email address already exists' do

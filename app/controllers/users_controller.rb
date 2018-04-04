@@ -7,8 +7,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to user_path(@user)
+      flash.notice = 'Thanks for making an account! Log in now to see what all the fuss is about!'
+      redirect_to login_path
     else
+      flash.notice = 'Sorry--there was a problem! Please try again!'
       redirect_to new_user_path
     end
   end

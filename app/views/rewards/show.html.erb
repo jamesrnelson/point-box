@@ -1,7 +1,7 @@
-<h1><%= @reward.title %></h1>
 <h3>Your points available to redeem: <%= current_user.total_points %></h3>
+<h1><%= @reward.title %></h1>
 <p><%= @reward.description %></p>
-<% if current_user.total_points > @reward.cost %>
+<% if current_user.total_points >= @reward.cost %>
   <%= link_to "Redeem #{@reward.cost} of your #{current_user.total_points} points to acquire this reward.", points_path(point: { description: "Redeemed #{@reward.cost} points for #{@reward.title}", value: -@reward.cost, user_id: current_user.id }, user_reward: { user_id: current_user.id, reward_id: @reward.id } ), method: 'post' %>
 <% else %>
   <h3>You do not have enough points to acquire this reward.</h3>

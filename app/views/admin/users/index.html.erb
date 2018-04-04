@@ -1,5 +1,6 @@
 <h1>All Users</h1>
 
+<%= link_to 'Create New User', new_admin_user_path %><br>
 <% @users.each do |user| %>
   <%= user.name %> - <%= user.email %> <br>
 <% end %>
