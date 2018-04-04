@@ -13,4 +13,8 @@ class User < ApplicationRecord
   def total_points
     points.sum(:value)
   end
+
+  def self.alphabetize
+    order(:name)
+  end
 end

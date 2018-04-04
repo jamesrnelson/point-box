@@ -48,4 +48,24 @@ describe User, type: :model do
       expect(user.total_points).to eq(50)
     end
   end
+
+  describe 'Alphabetize' do
+    it 'arranges Users alphabetically' do
+      user1 = User.create(
+        name: 'sammy',
+        email: 'sammy@gmail.com',
+        password: 'pass',
+        role: 0
+      )
+
+      user2 = User.create(
+        name: 'penelope',
+        email: 'penelope@gmail.com',
+        password: 'boom',
+        role: 0
+      )
+
+      expect(User.alphabetize.first.name).to eq('penelope')
+    end
+  end
 end

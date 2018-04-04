@@ -5,7 +5,7 @@ class Admin::PointsController < Admin::BaseController
   end
 
   def new
-    @users = User.all
+    @users = User.alphabetize
     @point = Point.new
   end
 end

@@ -1,13 +1,18 @@
 # Defines actions for Points Controller
 class PointsController < ApplicationController
   def create
-    @point = Point.create(point_params)
-    if @point.save
+    point = Point.create(point_params)
+    if point.save
       redirect_to admin_points_path
     else
       flash.notice = 'You must select a point value.'
       redirect_to new_admin_point_path
     end
+  end
+
+  def destroy
+    Point.destroy(params[:id])
+    redirect_to admin_points_path
   end
 
   private

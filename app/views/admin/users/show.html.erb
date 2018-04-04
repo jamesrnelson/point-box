@@ -1,0 +1,4 @@
+<h3> <%= @user.name %>'s total points: <%= @user.total_points  %> </h3>
+<% @user.points.each do |point| %>
+  <p>Points: <%= point.value %> - Created at: <%= point.created_at %> - Updated at: <%= point.updated_at %> - <%= link_to 'Delete', point_path(point), method: 'delete', data: {confirm: "Are you sure? This will permanently delete this point from #{@user.name}'s account."} %></p>
+<% end %>
