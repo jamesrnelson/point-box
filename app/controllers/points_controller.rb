@@ -1,5 +1,9 @@
 # Defines actions for Points Controller
 class PointsController < ApplicationController
+  def index
+    @points = current_user.points
+  end
+
   def create
     point = Point.create(point_params)
     if point.save
@@ -18,6 +22,6 @@ class PointsController < ApplicationController
   private
 
   def point_params
-    params.require(:point).permit(:value, :user_id)
+    params.require(:point).permit(:value, :description, :user_id)
   end
 end

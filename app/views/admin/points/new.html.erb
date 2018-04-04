@@ -3,6 +3,8 @@
 <%= form_for @point do |f| %>
   <%= f.label :value %>
   <%= f.number_field :value %>
+  <%= f.label :description %>
+  <%= f.text_area :description %>
   <%= f.label :user %>
   <%= f.collection_select :user_id, @users, :id, :email %>
   <%= f.submit 'Assign Points' %>
