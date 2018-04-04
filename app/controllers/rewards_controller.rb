@@ -27,6 +27,6 @@ class RewardsController < ApplicationController
   private
 
   def reward_params
-    params.require(:reward).permit(:title, :description)
+    params.require(:reward).permit(:title, :description, :cost)
   end
 end

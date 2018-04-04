@@ -10,12 +10,14 @@ describe 'User visits rewards index' do
 
     reward1 = Reward.create!(
       title: 'thing1',
-      description: 'it\'s so awesome!'
+      description: 'it\'s so awesome!',
+      cost: '80'
     )
 
     reward2 = Reward.create!(
       title: 'thing2',
-      description: 'it\'s so awesome!'
+      description: 'it\'s so awesome!',
+      cost: '75'
     )
 
     visit '/'

@@ -17,6 +17,7 @@ describe 'Admin Sees and Creates Rewards' do
 
     fill_in 'Title', with: 'A cool thing'
     fill_in 'Description', with: 'So cool that everybody wants it.'
+    fill_in 'Cost', with: 75
     click_on 'Create Reward'
 
     expect(current_path).to eq(admin_rewards_path)
@@ -41,6 +42,7 @@ describe 'Admin tries to use incomplete information when creating new reward' do
 
     fill_in 'Title', with: nil
     fill_in 'Description', with: 'So cool that everybody wants it.'
+    fill_in 'Cost', with: '75'
     click_on 'Create Reward'
 
     expect(current_path).to eq(new_admin_reward_path)
@@ -50,7 +52,11 @@ end
 
 describe 'Admin Edits Rewards' do
   it 'should be able to edit rewards' do
-    reward1 = Reward.create!(title: 'best thing', description: 'truly the best')
+    reward1 = Reward.create!(
+      title: 'best thing',
+      description: 'truly the best',
+      cost: '80'
+    )
 
     admin = User.create(
       name: 'Jimmy',
@@ -69,6 +75,7 @@ describe 'Admin Edits Rewards' do
 
     fill_in 'Title', with: 'worst thing'
     fill_in 'Description', with: 'no one wants it'
+    fill_in 'Cost', with: '2'
     click_on 'Update Reward'
 
     expect(page).to_not have_content(reward1.title)
@@ -80,7 +87,11 @@ end
 
 describe 'Admin Deletes Rewards' do
   it 'should be able to delete rewards' do
-    reward1 = Reward.create!(title: 'best thing', description: 'truly the best')
+    reward1 = Reward.create!(
+      title: 'best thing',
+      description: 'truly the best',
+      cost: '80'
+    )
 
     admin = User.create(
       name: 'Jimmy',
