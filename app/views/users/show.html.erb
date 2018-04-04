@@ -1,6 +1,7 @@
 <% if current_user %>
   <h1>Welcome, <%= current_user.name %> </h1>
   <h3>Points available to redeem: <%= current_user.total_points %> </h3>
+  <h3>Rewards you have acquired:</h3>
   <h3> <%= link_to 'See my points history', points_path %> </h3>
 
 <% else current_user = @user %>
