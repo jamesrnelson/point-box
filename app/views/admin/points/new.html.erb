@@ -4,6 +4,6 @@
   <%= f.label :value %>
   <%= f.number_field :value %>
   <%= f.label :user %>
-  <%= f.collection_select :user, 'name' %>
+  <%= f.collection_select :user_id, @users, :id, :email %>
   <%= f.submit 'Assign Points' %>
 <% end %>

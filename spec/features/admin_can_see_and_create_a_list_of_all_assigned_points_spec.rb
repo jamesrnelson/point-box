@@ -14,8 +14,14 @@ describe 'Admin visits points index' do
 
     click_on 'Assign Points'
 
-    fill_in 'Value', with: 50
-    select('admin.email', from: 'point[user_id]')
+    fill_in 'Value', with: 30
+    select(admin.email, from: 'point[user_id]')
+    click_on 'Assign Points'
+
+    click_on 'Assign Points'
+
+    fill_in 'Value', with: 20
+    select(admin.email, from: 'point[user_id]')
     click_on 'Assign Points'
 
     expect(current_path).to eq(admin_points_path)
