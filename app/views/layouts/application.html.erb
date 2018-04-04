@@ -11,7 +11,7 @@
   <body>
     <% if current_user %>
       <div class="topnav">
-        <a href="/" class="banner">PointBox</a>
+        <%= link_to 'PointBox', user_path(current_user), class: "banner" %>
         <div class="center">
           <p><%= link_to 'See All Rewards', rewards_path %></p>
         </div>

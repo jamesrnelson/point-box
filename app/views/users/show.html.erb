@@ -1,11 +1,15 @@
 <% if current_user %>
-  <h1>Welcome, <%= current_user.name %> </h1>
+  <h1>Welcome back, <%= current_user.name %> </h1>
   <h3>Points available to redeem: <%= current_user.total_points %> </h3>
-  <h3>Rewards you have acquired:</h3>
+
+  <h4>Rewards you have acquired: </h4>
+    <% current_user.rewards.each do |reward| %>
+      <p><%= link_to reward.title, reward_path(reward) %>
+      for <%= reward.cost %> points.</p>
+    <% end %>
+
   <h3> <%= link_to 'See my points history', points_path %> </h3>
 
-<% else current_user = @user %>
-  <h1>Welcome, <%= current_user.name %> </h1>
-
-
+<% else %>
+  <h1>Welcome to the site! <%= link_to 'Create an account', new_user_path %> in order to see what's inside! </h1>
 <% end %>
