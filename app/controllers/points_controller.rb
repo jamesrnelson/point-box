@@ -5,18 +5,9 @@ class PointsController < ApplicationController
   end
 
   def create
-    point = Point.create(point_params)
-    if point.save
-      redirect_to admin_points_path
-    else
-      flash.notice = 'You must select a point value.'
-      redirect_to new_admin_point_path
-    end
-  end
-
-  def destroy
-    Point.destroy(params[:id])
-    redirect_to admin_points_path
+    Point.create(point_params)
+    flash.notice = 'You have acquired a reward!'
+    redirect_to rewards_path
   end
 
   private
