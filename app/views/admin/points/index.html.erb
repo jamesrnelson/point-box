@@ -1,0 +1,5 @@
+<h1>All Users and Their Points</h1>
+<%= link_to 'Assign Points', new_admin_point_path %><br>
+<% @users.each do |user| %>
+  <%= link_to user.name, admin_user_path(user) %> - <%= user.email %> - Points: <%= user.total_points %>
+<% end %>

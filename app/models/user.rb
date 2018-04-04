@@ -6,5 +6,11 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true
 
+  has_many :points
+
   enum role: %w[default admin]
+
+  def total_points
+    points.sum(:value)
+  end
 end

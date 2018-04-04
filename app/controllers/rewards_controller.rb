@@ -9,7 +9,7 @@ class RewardsController < ApplicationController
     if @reward.save
       redirect_to admin_rewards_path
     else
-      render :new
+      redirect_to new_admin_reward_path
     end
   end
 
