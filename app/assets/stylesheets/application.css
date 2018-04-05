@@ -23,7 +23,7 @@ body {
   background-color: #011627;
   color: #FF9F1C;
   width: 95vw;
-  height: 150px;
+  height: 200px;
   margin-bottom: 15px;
   border: 10px solid #FDFFFC;
   display: flex;
@@ -35,7 +35,24 @@ body {
 .inner-top-nav {
   display: flex;
   flex-direction: column;
-  width: 250px;
+  width: 33vw;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 2px solid red;
+  border-top: 2px solid red;
+  padding-top: 20px;
+}
+.right-top-nav {
+  display: flex;
+  flex-direction: row;
+  width: 33vw;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 2px solid red;
+  border-top: 2px solid red;
+}
+
+.right-top-nav {
 
 }
 .banner {
@@ -105,6 +122,11 @@ body {
   border: 5px solid #011627;
   background-color: #FDFFFC;
   color: #011627;
+}
+
+.table-inner-middle-box td {
+  display: flex;
+  flex-direction: row;
 }
 
 .right-side p {
