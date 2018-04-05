@@ -17,6 +17,7 @@
 body {
   background-color: #2EC4B6;
   font-family: 'PT Sans', sans-serif;
+  font-size: 18px;
 }
 .topnav {
   background-color: #011627;
@@ -29,6 +30,13 @@ body {
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: center;
+}
+
+.inner-top-nav {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+
 }
 .banner {
   display: flex;
@@ -67,6 +75,7 @@ body {
   border: 5px solid #011627;
   background-color: #FDFFFC;
   color: #011627;
+  padding: 15px
 }
 
 .inner-middle-box a:hover {
