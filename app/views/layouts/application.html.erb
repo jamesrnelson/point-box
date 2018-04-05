@@ -11,21 +11,34 @@
   <body>
     <% if current_user %>
       <div class="topnav">
-        <%= link_to 'PointBox', user_path(current_user), class: "banner" %>
-        <div class="center">
-          <p><%= link_to 'See All Rewards', rewards_path %></p>
+        <div class="inner-top-nav">
+          <h1><%= link_to 'PointBox', user_path(current_user) %></h1>
         </div>
-        <div class="right-side">
-          <p> Logged in as <%=link_to current_user.email, user_path(current_user) %></p>
-          <p><%= link_to "Log out", logout_path, method: "delete" %></p>
+        <div class="inner-top-nav">
+          <p><%= link_to 'See All Rewards', rewards_path %></p>
+          <p><%= link_to 'Your Rewards', user_path(current_user) %></p>
+          <p> <%= link_to 'Your Points History', points_path %></p>
+        </div>
+        <div class="right-top-nav">
+            <p> Logged in as <%=link_to current_user.email, user_path(current_user) %></p>
+            <p><%= link_to "Log out", logout_path, method: "delete" %></p>
+          </div>
+
         </div>
     </div>
     <% else %>
-      <div class="topnav">
-        <a href="/" class="banner">PointBox</a>
-        <a href="/users/new" class="right-side">Create New Account</a>
-        <a href="/login" class="right-side">Log in</a>
+
+    <div class="topnav">
+      <div class="inner-top-nav">
+        <h1><%= link_to 'PointBox', root_path %></h1>
       </div>
+      <div class="inner-top-nav">
+        <p><%= link_to 'Create New Account', new_user_path %></p>
+      </div>
+      <div class="right-top-nav">
+          <p><%=link_to 'Log in', login_path %></p>
+      </div>
+    </div>
     <% end %>
   <% flash.each do |name, msg| %>
     <%= content_tag :div, msg, class: name %>
