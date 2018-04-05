@@ -1,6 +1,11 @@
-<h1> <%= current_user.name %>'s Points History </h1>
-<h3>Point Balance: <%= current_user.total_points %> </h3>
-<h3> <%= link_to "<< Back to #{current_user.name}'s dashboard", user_path(current_user) %> </h3>
-<% @points.each do |point| %>
-  <p> Points: <%= point.value %> - Description: <%= point.description %> - Created at: <%= point.created_at %>
-<% end %>
+<div class="middle-box">
+  <div class="alt-inner-middle-box">
+    <h1> <%= current_user.name %>'s Points History </h1>
+    <h3>Point Balance: <%= current_user.total_points %> </h3>
+    <h3> <%= link_to "<< Back to #{current_user.name}'s dashboard", user_path(current_user) %> </h3>
+    <% @points.each do |point| %>
+    <p> Points: <%= point.value %> - Description: <%= point.description %> - Created at: <%= point.created_at %>
+      <% end %>
+
+  </div>
+</div>
