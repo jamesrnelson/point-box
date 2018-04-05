@@ -1,5 +1,15 @@
-<h1>All Possible Rewards</h1><br>
-<h3>Your points available to redeem: <%= current_user.total_points %></h3>
-<% @rewards.each do |reward| %>
-  <%= link_to reward.title, reward_path(reward) %> - <%= reward.description %> - Price: <%= reward.cost %><br>
-<% end %>
+<div class="middle-box">
+  <div class="table-inner-middle-box">
+    <h1>All Possible Rewards</h1><br>
+    <h3>Your points available to redeem: <%= current_user.total_points %></h3>
+    <% @rewards.each do |reward| %>
+    <table>
+      <tr>
+        <td><%= link_to reward.title, reward_path(reward) %></td>
+        <td><%= reward.description %></td>
+        <td>Price: <%= reward.cost %></td>
+    <% end %>
+
+  </div>
+
+</div>
